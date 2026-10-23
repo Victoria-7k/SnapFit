@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>实验报告 · 图片排版助手</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="layout.js"></script>
+  <script defer src="pdf.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand"><span class="brand-icon" aria-hidden="true">▦</span><div><strong>实验报告</strong><span>图片排版助手</span></div></div>
+    <span class="local-badge"><i></i>本地处理</span>
+  </header>
+
+  <main class="workspace">
+    <aside class="sidebar">
+      <div class="intro"><h1>实验报告图片排版助手</h1><p>添加照片，自动排成 B5 页面。<br>统一宽度，完整保留每一张图片。</p></div>
+
+      <section class="panel import-panel" aria-labelledby="import-title">
+        <div class="section-heading"><h2 id="import-title">01 <span>添加图片</span></h2><span id="image-count" class="count">0 张</span></div>
+        <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+        <button class="drop-zone" id="drop-zone" type="button">
+          <span class="upload-icon" aria-hidden="true">＋</span>
+          <strong>点击选择，或把图片拖到这里</strong>
+          <span>支持 JPG、PNG、WebP，可分批追加</span>
+        </button>
+        <div class="list-toolbar" id="list-toolbar" hidden><span>按下方顺序排版</span><button id="clear-button" class="text-button" type="button">清空</button></div>
+        <ol id="image-list" class="image-list" aria-label="图片顺序"></ol>
+        <p id="order-hint" class="subtle" hidden>拖动缩略图排序，也可使用每张图片的左右箭头。</p>
+      </section>
+
+      <section class="panel rules-panel" aria-labelledby="rules-title">
+        <div class="section-heading"><h2 id="rules-title">02 <span>排版规则</span></h2><span class="fixed-badge">已设定</span></div>
+        <dl class="rules"><div><dt>纸张</dt><dd>B5 竖版 <small>176 × 250 mm</small></dd></div><div><dt>图片排列</dt><dd>固定 3 列 · 按页面高度自动换页</dd></div><div><dt>统一图宽</dt><dd>45.33 mm <small>高度等比例</small></dd></div><div><dt>图片间距</dt><dd>横向 10 mm · 行间至少 10 mm</dd></div><div><dt>四周页边距</dt><dd>10 mm</dd></div></dl>
+      </section>
+    </aside>
+
+    <section class="preview-area" aria-labelledby="preview-title">
+      <div class="preview-heading"><div><span class="eyebrow">PRINT PREVIEW</span><h2 id="preview-title">纸上预览</h2></div><button id="export-button" class="primary-button" disabled type="button"><span aria-hidden="true">↓</span><span id="export-label">导出 PDF</span></button></div>
+      <div class="summary-bar"><span><b id="summary-images">0</b> 张图片</span><span><b id="summary-pages">0</b> 页 B5</span><span class="summary-detail">图宽 <b>45.33</b> mm <i>·</i> 间距 <b>≥ 10</b> mm</span></div>
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+      <div id="problems" class="problems" role="alert" hidden></div>
+      <div id="pages" class="pages">
+        <div class="empty-sheet"><div class="empty-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>先从左侧添加图片，这里会显示实际分页。</p><span class="paper-size">B5 · 176 × 250 mm</span></div>
+      </div>
+      <p class="print-hint"><span aria-hidden="true">↳</span> 打印 PDF 时，选择 B5 纸张与「实际大小 / 100%」，保留设定的图片尺寸和间距。</p>
+    </section>
+  </main>
+</body>
+</html>
