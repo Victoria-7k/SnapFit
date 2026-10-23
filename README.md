@@ -1,6 +1,8 @@
-# 实验报告图片排版助手
+# SnapFit
 
-双击 `打开排版助手.cmd` 或 `index.html`，在 Edge / Chrome 中打开。无需安装、无需联网。请将 `index.html`、`styles.css`、`layout.js`、`pdf.js`、`app.js` 保留在同一文件夹。
+实验报告图片排版助手。
+
+双击 `打开SnapFit.cmd` 或 `index.html`，在 Edge / Chrome 中打开。无需安装、无需联网。请将 `index.html`、`styles.css`、`layout.js`、`pdf.js`、`app.js` 保留在同一文件夹。
 
 1. 点击添加或拖入 JPG / PNG / WebP 图片，可以分批追加。
 2. 在缩略图列表中拖动排序，或使用左右箭头调整顺序；× 删除该图片。

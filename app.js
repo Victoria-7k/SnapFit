@@ -109,7 +109,7 @@
     setBusy(true);
     try{
       const blob=await ReportPdf.createPdf(images,currentLayout,(done,total)=>{$('export-label').textContent=`正在导出 ${done} / ${total}`;});
-      const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='实验报告图片_B5.pdf';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
+      const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='SnapFit_B5.pdf';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
       status(`已导出 ${currentLayout.pages.length} 页 PDF，共 ${images.length} 张图片。打印时请选择 B5 和「实际大小 / 100%」。`);
     }catch(error){status(`导出失败：${error.message} 请重试。`,true);}
     finally{$('export-label').textContent='导出 PDF';setBusy(false);}
